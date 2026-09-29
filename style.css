@@ -1113,8 +1113,27 @@ button, input, select, textarea {
   font-weight: 600;
 }
 
+.gallery-load-more {
+  margin-top: 45px;
+  position: relative;
+  z-index: 2;
+}
+
+#btn-load-more {
+  padding: 14px 34px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-bounce);
+  cursor: pointer;
+}
+
+#btn-load-more:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-gold-hover);
+}
+
 .gallery-footer-note {
-  margin-top: 40px;
+  margin-top: 25px;
   color: var(--text-muted);
   font-size: 0.9rem;
 }
