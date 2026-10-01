@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin Pengawas Akses Web | Sanggar Tungga Production</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+  <!-- Ambient Glowing Background -->
+  <div class="admin-ambient-glow glow-1"></div>
+  <div class="admin-ambient-glow glow-2"></div>
+
+  <!-- ==========================================================
+       LOGIN AUTHENTICATION OVERLAY
+       ========================================================== -->
+  <div class="admin-auth-overlay" id="admin-auth-overlay">
+    <div class="auth-card" id="auth-card">
+      <div class="auth-logo-wrap">
+        <img src="assets/logo/logo.png" alt="Logo Sanggar Tungga Production">
+      </div>
+      <h2 class="auth-title">Portal Admin Sanggar</h2>
+      <p class="auth-subtitle">Sistem Pengawasan Lalu Lintas & Akses Pengunjung Web</p>
+
+      <form id="auth-form">
+        <div class="auth-input-group">
+          <label for="auth-password" class="auth-label">Kata Sandi / PIN Pengurus</label>
+          <div class="auth-input-wrap">
+            <i class="fa-solid fa-key input-icon"></i>
+            <input type="password" id="auth-password" class="auth-input" placeholder="Masukkan kata sandi admin..."
+              autocomplete="current-password" required>
+            <button type="button" class="btn-toggle-eye" id="auth-toggle-eye" aria-label="Lihat kata sandi">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+          <div class="auth-error-msg" id="auth-error">
+            <i class="fa-solid fa-circle-exclamation"></i> Kata sandi salah. Silakan coba lagi.
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth-submit">
+          <i class="fa-solid fa-right-to-bracket"></i> Masuk ke Dashboard
+        </button>
+      </form>
+
+      <div class="auth-hint-box">
+        <i class="fa-solid fa-circle-info text-gold"></i> Kata sandi default:
+        <strong id="quick-fill-btn" title="Klik untuk isi otomatis">admin123</strong> (klik untuk isi otomatis)
+      </div>
+
+      <div>
+        <a href="index.html" class="auth-back-link">
+          <i class="fa-solid fa-arrow-left"></i> Kembali ke Website Utama
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       ADMIN HEADER & NAVBAR
+       ========================================================== -->
+  <header class="admin-header">
+    <div class="admin-container">
+      <div class="admin-header-flex">
+        <!-- Brand Info -->
+        <a href="admin.html" class="admin-brand">
+          <img src="assets/logo/logo.png" alt="Logo Sanggar" class="admin-logo">
+          <div class="admin-brand-info">
+            <h1>Tungga Production</h1>
+            <span>Admin Access Monitor</span>
+          </div>
+        </a>
+
+        <!-- Status Indicator -->
+        <div class="admin-status-pill">
+          <span class="status-dot"></span>
+          <span>Pelacak Data Riil Aktif</span>
+        </div>
+
+        <!-- Real-time Clock & Actions -->
+        <div class="admin-header-actions">
+          <div class="admin-clock-box">
+            <i class="fa-regular fa-clock text-gold"></i>
+            <span id="admin-clock">--:--:-- WIB</span>
+          </div>
+
+          <a href="index.html" class="btn-admin btn-admin-outline" title="Lihat Website">
+            <i class="fa-solid fa-globe"></i> Web Utama
+          </a>
+
+          <button id="btn-refresh" class="btn-admin btn-admin-outline" title="Perbarui Data">
+            <i class="fa-solid fa-rotate"></i> Refresh Data
+          </button>
+
+          <button id="btn-export" class="btn-admin btn-admin-gold" title="Download Log Excel/CSV">
+            <i class="fa-solid fa-file-arrow-down"></i> Ekspor CSV
+          </button>
+
+          <button id="btn-logout" class="btn-admin btn-admin-danger" title="Keluar dari Dashboard">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================
+       DASHBOARD MAIN CONTENT
+       ========================================================== -->
+  <main class="admin-main">
+    <div class="admin-container">
+
+      <!-- Dashboard Topbar & Range Filter -->
+      <div class="dashboard-topbar">
+        <div class="dashboard-heading">
+          <h2>Statistik & <span style="background:var(--gold-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Pengunjung Web</span></h2>
+          <p>Pemantauan aktivitas pengunjung, perangkat pengakses, kota asal, dan rujukan media sosial.</p>
+        </div>
+
+        <div class="filter-pills">
+          <button class="filter-pill-btn active" data-range="all">Semua Waktu</button>
+          <button class="filter-pill-btn" data-range="today">Hari Ini</button>
+          <button class="filter-pill-btn" data-range="7d">7 Hari Terakhir</button>
+          <button class="filter-pill-btn" data-range="30d">30 Hari</button>
+        </div>
+      </div>
+
+      <!-- KPI Stat Cards (4 Cards) -->
+      <section class="kpi-grid">
+        <!-- Card 1: Total Pageviews -->
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-label">Total Kunjungan</span>
+            <div class="kpi-icon-box"><i class="fa-solid fa-chart-line"></i></div>
+          </div>
+          <div class="kpi-value" id="kpi-total-pageviews">0</div>
+          <div class="kpi-sub">
+            <span style="color:var(--gold-light);"><i class="fa-solid fa-circle-check"></i> Akumulasi</span>
+            <span>tayangan riil</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Unique Visitors -->
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-label">Pengunjung Unik</span>
+            <div class="kpi-icon-box"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <div class="kpi-value" id="kpi-unique-visitors">0</div>
+          <div class="kpi-sub">
+            <span style="color:var(--gold-light);"><i class="fa-solid fa-fingerprint"></i> Perangkat unik</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Today's Visits -->
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-label">Kunjungan Hari Ini</span>
+            <div class="kpi-icon-box"><i class="fa-solid fa-calendar-day"></i></div>
+          </div>
+          <div class="kpi-value" id="kpi-today-visits">0</div>
+          <div class="kpi-sub">
+            <span class="kpi-trend-up"><i class="fa-solid fa-circle-dot"></i> Aktivitas aktif</span>
+            <span>hari ini</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Dominant Device -->
+        <div class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-label">Perangkat Dominan</span>
+            <div class="kpi-icon-box"><i class="fa-solid fa-mobile-screen"></i></div>
+          </div>
+          <div class="kpi-value" id="kpi-device-dominant">0%</div>
+          <div class="kpi-sub" id="kpi-device-sub">Smartphone</div>
+        </div>
+      </section>
+
+      <!-- Primary Charts Section -->
+      <section class="charts-grid">
+        <!-- Daily Traffic Chart -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title"><i class="fa-solid fa-chart-area text-gold"></i> Tren Kunjungan Harian (7 Hari Terakhir)</h3>
+            <span class="chart-tag">Realtime Analytics</span>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-traffic"></canvas>
+          </div>
+        </div>
+
+        <!-- Devices Donut Chart -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title"><i class="fa-solid fa-chart-pie text-gold"></i> Distribusi Perangkat</h3>
+            <span class="chart-tag">Mobile vs Desktop</span>
+          </div>
+          <div class="chart-canvas-wrap">
+            <canvas id="chart-devices"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Secondary Breakdown (Browsers & Sources) -->
+      <section class="secondary-charts-grid">
+        <!-- Browsers List -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title"><i class="fa-solid fa-compass text-gold"></i> Browser Populer</h3>
+            <span class="chart-tag">Aplikasi Peramban</span>
+          </div>
+          <div class="stats-list" id="stats-browsers">
+            <!-- Populated by admin.js -->
+          </div>
+        </div>
+
+        <!-- Traffic Sources List -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 class="chart-title"><i class="fa-solid fa-share-nodes text-gold"></i> Sumber Lalu Lintas</h3>
+            <span class="chart-tag">Rujukan Media & Langsung</span>
+          </div>
+          <div class="stats-list" id="stats-sources">
+            <!-- Populated by admin.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Visitor Logs Table -->
+      <section class="table-card">
+        <div class="chart-header" style="margin-bottom:16px;">
+          <div>
+            <h3 class="chart-title"><i class="fa-solid fa-list-check text-gold"></i> Riwayat Log Akses Pengunjung Asli</h3>
+            <p style="font-size:0.8rem; color:var(--text-muted); margin-top:2px;">
+              Daftar sesi pengunjung riil lengkap dengan IP, kota/wilayah asli, perangkat, browser, dan waktu akses.
+            </p>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button id="btn-clear-logs" class="btn-admin btn-admin-danger" title="Hapus riwayat log">
+              <i class="fa-solid fa-trash-can"></i> Bersihkan Log
+            </button>
+          </div>
+        </div>
+
+        <!-- Table Toolbar & Filters -->
+        <div class="table-toolbar">
+          <div class="table-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="table-search" class="table-search-input"
+              placeholder="Cari IP, Kota, Perangkat, Browser...">
+          </div>
+
+          <div class="table-filters-group">
+            <select id="filter-device" class="table-select">
+              <option value="all">Semua Perangkat</option>
+              <option value="Smartphone">Smartphone</option>
+              <option value="Desktop">Desktop / PC</option>
+              <option value="Tablet">Tablet</option>
+            </select>
+
+            <select id="filter-source" class="table-select">
+              <option value="all">Semua Sumber</option>
+              <option value="Instagram">Instagram</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Google">Google Search</option>
+              <option value="Akses Langsung">Akses Langsung</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Responsive Table Container -->
+        <div class="table-responsive">
+          <table class="visitor-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Waktu Akses</th>
+                <th>Lokasi & IP</th>
+                <th>Perangkat & Layar</th>
+                <th>Browser</th>
+                <th>Sumber Rujukan</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="visitor-table-body">
+              <!-- Populated dynamically by admin.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table Pagination Footer -->
+        <div class="table-footer">
+          <div class="table-info" id="table-count-info">
+            Menampilkan 0 - 0 dari 0 entri log
+          </div>
+          <div class="pagination-controls">
+            <button class="page-btn" id="btn-prev-page" disabled>
+              <i class="fa-solid fa-chevron-left"></i> Sebelumnya
+            </button>
+            <span class="page-btn" id="page-indicator" style="cursor:default; background:transparent; border:none; color:var(--gold-light);">
+              Halaman 1 / 1
+            </span>
+            <button class="page-btn" id="btn-next-page">
+              Berikutnya <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Clear Confirmation Modal -->
+  <div class="admin-modal-overlay" id="clear-modal">
+    <div class="admin-modal-box">
+      <i class="fa-solid fa-triangle-exclamation modal-icon"></i>
+      <h3>Bersihkan Semua Log?</h3>
+      <p>Tindakan ini akan mengosongkan seluruh riwayat rekaman pengunjung dari penyimpanan lokal browser Anda.</p>
+      <div class="admin-modal-actions">
+        <button id="btn-cancel-clear" class="btn-admin btn-admin-outline">Batal</button>
+        <button id="btn-confirm-clear" class="btn-admin btn-admin-danger">Ya, Bersihkan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tracking Engine & Admin Logic -->
+  <script src="tracker.js"></script>
+  <script src="admin.js"></script>
+</body>
+
+</html>

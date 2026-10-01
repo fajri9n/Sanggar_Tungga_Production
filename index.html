@@ -75,22 +75,10 @@
   <main>
     <!-- Hero Section -->
     <section class="hero-section" id="beranda">
-      <!-- Hero Background Slideshow (Subtle Crossfade) -->
+      <!-- Hero Background (Foto Galeri 01) -->
       <div class="hero-bg-slider" id="hero-slider" aria-hidden="true">
         <div class="hero-slide active">
-          <img src="assets/galeri/galeri_01.jpg" alt="Pementasan Seni Gelar Karya Budaya" class="hero-bg-img">
-        </div>
-        <div class="hero-slide">
-          <img src="assets/galeri/galeri_03.jpg" alt="Dokumentasi Pementasan Tari Tradisional" class="hero-bg-img" loading="lazy">
-        </div>
-        <div class="hero-slide">
-          <img src="assets/galeri/galeri_04.jpg" alt="Harmoni Seni Tari Nusantara" class="hero-bg-img" loading="lazy">
-        </div>
-        <div class="hero-slide">
-          <img src="assets/galeri/galeri_08.jpg" alt="Pagelaran Budaya Lampung" class="hero-bg-img" loading="lazy">
-        </div>
-        <div class="hero-slide">
-          <img src="assets/galeri/galeri_10.jpg" alt="Keanggunan Panggung Seni Sanggar Tungga" class="hero-bg-img" loading="lazy">
+          <img src="assets/galeri/galeri_01.jpg" alt="Pementasan Seni Budaya Sanggar Tungga Production" class="hero-bg-img">
         </div>
       </div>
       <div class="hero-bg-overlay"></div>
@@ -443,43 +431,240 @@
       </div>
     </section>
 
-    <!-- Photo Gallery Section -->
+    <!-- Photo Gallery, Highlight & Awards Section -->
     <section class="section gallery-section" id="galeri">
       <div class="container">
+        <!-- Main Section Header -->
         <div class="section-header text-center">
-          <span class="section-tag"><i class="fa-solid fa-camera"></i> Portofolio Visual</span>
+          <span class="section-tag"><i class="fa-solid fa-camera"></i> Dokumentasi & Portofolio Visual</span>
           <h2 class="section-title">Dokumentasi <span class="text-gold-gradient">Galeri Karya</span></h2>
           <p class="section-subtitle">
-            Kilas balik momen keindahan pementasan, harmoni gerak tari, dan dedikasi seniman Tungga Production di atas
-            panggung budaya.
+            Kilas balik momen keindahan pementasan panggung, harmoni gerak tari tradisional, torehan prestasi penghargaan kejuaraan, serta arsip visual Sanggar Tungga Production.
           </p>
         </div>
 
-        <!-- Gallery Category Filter -->
-        <div class="gallery-filters" id="gallery-filters">
-          <button class="filter-btn active" data-filter="all">Semua Foto (49)</button>
-          <button class="filter-btn" data-filter="pementasan">Pementasan Budaya</button>
-          <button class="filter-btn" data-filter="penari">Penari & Siger</button>
-          <button class="filter-btn" data-filter="latihan">Kelas & Latihan</button>
-          <button class="filter-btn" data-filter="karya">Seni & Tradisi</button>
+        <!-- HIGHLIGHT & PENGHARGAAN (BERDAMPINGAN / SIDE-BY-SIDE) -->
+        <div class="highlight-awards-wrapper" id="highlight">
+          <!-- SISI KIRI: HIGHLIGHT PEMENTASAN UNGGULAN -->
+          <div class="highlight-side-column">
+            <div class="block-subheading">
+              <span class="badge-gold-pill"><i class="fa-solid fa-star"></i> Momen Pilihan</span>
+              <h3 class="block-title">Highlight <span class="text-gold-gradient">Pementasan</span></h3>
+              <p class="block-desc">
+                Dokumentasi eksklusif pagelaran akbar dan atraksi formasi tari tradisi kreasi pilihan Sanggar Tungga Production.
+              </p>
+            </div>
+
+            <div class="highlight-cards-stack">
+              <!-- Top Highlight Card (Ketua Sanggar dan Bupati Tanggamus) -->
+              <div class="highlight-horizontal-card" data-lightbox-src="assets/galeri/highlight_audiensi_tokoh.jpg" data-lightbox-title="Ketua Sanggar dan Bupati Tanggamus" data-lightbox-cat="Silaturahmi Kebudayaan" data-lightbox-desc="Pertemuan silaturahmi kehormatan dan sinergi kebudayaan antara Ketua Sanggar Tungga Production bersama Bupati Tanggamus di pendopo agung.">
+                <div class="horizontal-thumb">
+                  <img src="assets/galeri/highlight_audiensi_tokoh.jpg" alt="Ketua Sanggar dan Bupati Tanggamus" loading="lazy">
+                </div>
+                <div class="horizontal-info">
+                  <div class="h-badge"><i class="fa-solid fa-handshake"></i> Audiensi Resmi</div>
+                  <h4 class="h-title">Ketua Sanggar dan Bupati Tanggamus</h4>
+                  <p class="h-desc">Apresiasi hangat dan sinergi pembinaan seni budaya bersama Bupati Tanggamus.</p>
+                  <button class="btn btn-outline btn-xs btn-view-photo"><i class="fa-solid fa-expand"></i> Lihat Foto</button>
+                </div>
+              </div>
+
+              <!-- Featured Main Highlight Card (Landscape 16:9) -->
+              <div class="highlight-featured-card" data-lightbox-src="assets/galeri/highlight_pagelaran_tanggamus.jpg" data-lightbox-title="Pagelaran Seni & Budaya Tanggamus" data-lightbox-cat="Pentas Akbar Kebudayaan" data-lightbox-desc="Momen akbar kolaborasi pertunjukan seni panggung di hadapan pimpinan daerah, jajaran Forkopimda, dan ribuan penonton.">
+                <div class="highlight-card-img-wrap">
+                  <img src="assets/galeri/highlight_pagelaran_tanggamus.jpg" alt="Pagelaran Seni & Budaya Tanggamus" loading="lazy">
+                  <div class="highlight-badge-pill">
+                    <i class="fa-solid fa-landmark"></i> Pagelaran Akbar
+                  </div>
+                  <div class="highlight-overlay">
+                    <div class="highlight-content">
+                      <span class="highlight-tag">Panggung Utama Daerah</span>
+                      <h4 class="highlight-title">Pagelaran Seni & Budaya Tanggamus</h4>
+                      <p class="highlight-desc">Pementasan kolosal wiraga & wirama yang memukau pimpinan daerah dan ribuan pasang mata.</p>
+                      <button class="btn btn-gold btn-sm btn-view-photo">
+                        <i class="fa-solid fa-expand"></i> Perbesar Foto
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dual Mini Highlight Cards (2 Columns) -->
+              <div class="highlight-mini-grid">
+                <!-- Mini Card 1 -->
+                <div class="highlight-mini-card" data-lightbox-src="assets/galeri/highlight_siger_prosesi_adat.jpg" data-lightbox-title="Tari Siger Sembah Tamu Agung" data-lightbox-cat="Penari & Busana Adat" data-lightbox-desc="Penyambutan sakral tamu agung dalam balutan busana beludru marun dan mahkota siger emas murni.">
+                  <div class="highlight-card-img-wrap">
+                    <img src="assets/galeri/highlight_siger_prosesi_adat.jpg" alt="Tari Siger Sembah Tamu Agung" loading="lazy">
+                    <div class="highlight-badge-pill">
+                      <i class="fa-solid fa-crown"></i> Prosesi Adat
+                    </div>
+                    <div class="highlight-overlay">
+                      <div class="highlight-content">
+                        <span class="highlight-tag">Penyambutan Tamu</span>
+                        <h4 class="highlight-title">Tari Siger Sembah</h4>
+                        <button class="btn btn-gold btn-xs btn-view-photo">
+                          <i class="fa-solid fa-expand"></i> Detail
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mini Card 2 -->
+                <div class="highlight-mini-card" data-lightbox-src="assets/galeri/highlight_atraksi_tari.jpg" data-lightbox-title="Atraksi Koreografi Rebana Tradisional" data-lightbox-cat="Seni & Tradisi Kreasi" data-lightbox-desc="Formasi akrobatik penari yang memadukan kelenturan wiraga dan ketukan ritmis rebana tradisional.">
+                  <div class="highlight-card-img-wrap">
+                    <img src="assets/galeri/highlight_atraksi_tari.jpg" alt="Atraksi Koreografi Rebana Tradisional" loading="lazy">
+                    <div class="highlight-badge-pill">
+                      <i class="fa-solid fa-fire"></i> Koreografi Khas
+                    </div>
+                    <div class="highlight-overlay">
+                      <div class="highlight-content">
+                        <span class="highlight-tag">Atraksi Tradisi</span>
+                        <h4 class="highlight-title">Koreografi Rebana</h4>
+                        <button class="btn btn-gold btn-xs btn-view-photo">
+                          <i class="fa-solid fa-expand"></i> Detail
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SISI KANAN: PENGHARGAAN & PRESTASI (DI SAMPING HIGHLIGHT) -->
+          <div class="awards-side-column" id="penghargaan">
+            <div class="block-subheading">
+              <span class="badge-gold-pill"><i class="fa-solid fa-trophy"></i> Apresiasi & Kejuaraan</span>
+              <h3 class="block-title">Prestasi & <span class="text-gold-gradient">Penghargaan</span></h3>
+              <p class="block-desc">
+                Bukti nyata dedikasi, kedisiplinan berkesenian, serta kerja keras penari dan pembina Sanggar Tungga Production.
+              </p>
+            </div>
+
+            <!-- Award Card Showcase -->
+            <div class="award-showcase-card">
+              <!-- Visual Box with Trophy Photo -->
+              <div class="award-visual-box" data-lightbox-src="assets/galeri/penghargaan_lampung_olympic.jpg" data-lightbox-title="Penghargaan Juara Lampung Student Olympic 2026" data-lightbox-cat="Prestasi Kejuaraan 2026" data-lightbox-desc="Trofi piala kejuaraan dan piagam resmi yang diraih penari Sanggar Tungga Production pada ajang Lampung Student Olympic 2026 tingkat Provinsi Lampung.">
+                <!-- Ambient Backdrop Blur -->
+                <div class="award-bg-blur" style="background-image: url('assets/galeri/penghargaan_lampung_olympic.jpg');"></div>
+                <img src="assets/galeri/penghargaan_lampung_olympic.jpg" alt="Penghargaan Juara Lampung Student Olympic 2026" class="award-main-img" loading="lazy">
+                <div class="award-trophy-badge">
+                  <i class="fa-solid fa-trophy"></i>
+                  <span>JUARA 2026</span>
+                </div>
+                <div class="award-zoom-hint">
+                  <i class="fa-solid fa-expand"></i> Perbesar Trofi & Piagam
+                </div>
+              </div>
+
+              <!-- Award Details -->
+              <div class="award-details-box">
+                <div class="award-tags-row">
+                  <span class="award-badge-gold"><i class="fa-solid fa-medal"></i> Prestasi Gemilang 2026</span>
+                  <span class="award-badge-outline"><i class="fa-solid fa-location-dot"></i> Prov. Lampung</span>
+                </div>
+
+                <h4 class="award-headline">Juara & Penghargaan <span class="text-gold-gradient">Lampung Student Olympic 2026</span></h4>
+                <p class="award-paragraph">
+                  Torehan prestasi prestisius oleh kontingen penari muda Sanggar Tungga Production pada ajang bergengsi Lampung Student Olympic 2026 kategori seni tari kreasi tradisi.
+                </p>
+
+                <!-- 3 Key Point List -->
+                <div class="award-key-points">
+                  <div class="key-point-item">
+                    <div class="kp-icon"><i class="fa-solid fa-trophy text-gold"></i></div>
+                    <div class="kp-text">
+                      <strong>Trofi Juara Emas</strong>
+                      <span>Penilaian terbaik pada keselarasan wiraga, wirama, dan wirasa panggung.</span>
+                    </div>
+                  </div>
+
+                  <div class="key-point-item">
+                    <div class="kp-icon"><i class="fa-solid fa-certificate text-gold"></i></div>
+                    <div class="kp-text">
+                      <strong>Piagam Penghargaan Resmi</strong>
+                      <span>Sertifikasi resmi penghargaan yang disahkan oleh panitia dan dinas kebudayaan.</span>
+                    </div>
+                  </div>
+
+                  <div class="key-point-item">
+                    <div class="kp-icon"><i class="fa-solid fa-crown text-gold"></i></div>
+                    <div class="kp-text">
+                      <strong>Duta Tari Siger Kehormatan</strong>
+                      <span>Kepercayaan membawakan Tari Sembah penyambutan tamu penting adat daerah.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Award CTAs -->
+                <div class="award-btn-row">
+                  <button class="btn btn-gold btn-sm btn-view-photo" data-lightbox-src="assets/galeri/penghargaan_lampung_olympic.jpg" data-lightbox-title="Penghargaan Juara Lampung Student Olympic 2026" data-lightbox-cat="Prestasi Kejuaraan 2026" data-lightbox-desc="Trofi piala kejuaraan dan piagam resmi yang diraih penari Sanggar Tungga Production pada ajang Lampung Student Olympic 2026 tingkat Provinsi Lampung.">
+                    <i class="fa-solid fa-expand"></i> Lihat Trofi & Piagam
+                  </button>
+                  <a href="#kontak" class="btn btn-outline btn-sm">
+                    <i class="fa-brands fa-whatsapp"></i> Hubungi Sanggar
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mini 2-Column Award Highlight Pills -->
+            <div class="award-mini-pills">
+              <div class="award-pill-card">
+                <div class="pill-icon"><i class="fa-solid fa-award"></i></div>
+                <div>
+                  <h5>Penampil Utama Budaya</h5>
+                  <p>Apresiasi Pemkab Tanggamus pada pagelaran seni akbar daerah.</p>
+                </div>
+              </div>
+              <div class="award-pill-card">
+                <div class="pill-icon"><i class="fa-solid fa-heart"></i></div>
+                <div>
+                  <h5>Pelestari Adat Lampung</h5>
+                  <p>Komitmen membina generasi muda mencintai nilai tradisi Nusantara.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Dynamic Gallery Grid for all 49 photos -->
-        <div class="gallery-grid" id="gallery-grid">
-          <!-- Populated dynamically by script.js -->
-        </div>
+        <!-- SEMUA FOTO DI PALING AKHIR -->
+        <div class="gallery-all-photos-block" id="semua-foto">
+          <div class="gallery-block-header text-center">
+            <span class="badge-gold-pill"><i class="fa-solid fa-images"></i> Arsip Dokumentasi Lengkap</span>
+            <h3 class="gallery-block-title">Koleksi <span class="text-gold-gradient">Semua Foto (49)</span></h3>
+            <p class="gallery-block-subtitle">
+              Jelajahi seluruh dokumentasi pementasan panggung, rias busana mahkota siger, sesi gladi resik, dan kegiatan kebersamaan Sanggar Tungga Production.
+            </p>
+          </div>
 
-        <!-- Load More Button -->
-        <div class="gallery-load-more text-center" id="gallery-load-more-container" style="margin-top: 45px;">
-          <button id="btn-load-more" class="btn btn-gold btn-lg">
-            <i class="fa-solid fa-images"></i> Muat Foto Lainnya (<span id="gallery-loaded-count">12</span> / <span
-              id="gallery-total-count">49</span>)
-          </button>
-        </div>
+          <!-- Gallery Category Filter -->
+          <div class="gallery-filters" id="gallery-filters">
+            <button class="filter-btn active" data-filter="all">Semua Foto (49)</button>
+            <button class="filter-btn" data-filter="pementasan">Pementasan Budaya</button>
+            <button class="filter-btn" data-filter="penari">Penari & Siger</button>
+            <button class="filter-btn" data-filter="latihan">Kelas & Latihan</button>
+            <button class="filter-btn" data-filter="karya">Seni & Tradisi</button>
+          </div>
 
-        <div class="gallery-footer-note text-center" style="margin-top: 25px;">
-          <p><i class="fa-solid fa-circle-info text-gold"></i> Klik pada setiap foto untuk melihat dalam resolusi penuh,
-            keterangan pementasan, dan navigasi layar penuh.</p>
+          <!-- Dynamic Gallery Grid for all 49 photos -->
+          <div class="gallery-grid" id="gallery-grid">
+            <!-- Populated dynamically by script.js -->
+          </div>
+
+          <!-- Load More Button -->
+          <div class="gallery-load-more text-center" id="gallery-load-more-container" style="margin-top: 45px;">
+            <button id="btn-load-more" class="btn btn-gold btn-lg">
+              <i class="fa-solid fa-images"></i> Muat Foto Lainnya (<span id="gallery-loaded-count">12</span> / <span
+                id="gallery-total-count">49</span>)
+            </button>
+          </div>
+
+          <div class="gallery-footer-note text-center" style="margin-top: 25px;">
+            <p><i class="fa-solid fa-circle-info text-gold"></i> Klik pada setiap foto untuk melihat dalam resolusi penuh,
+              keterangan pementasan, dan navigasi layar penuh.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -814,12 +999,13 @@
         <p>&copy; <span id="current-year">2026</span> <strong>Tungga Production</strong>. Hak Cipta Dilindungi
           Undang-Undang.</p>
         <p class="crafted-text">Dibuat dengan <i class="fa-solid fa-heart text-gold"></i> untuk Seni & Kebudayaan
-          Nusantara</p>
+          Nusantara • <a href="admin.html" class="admin-portal-link" title="Portal Admin Pengurus" style="color:var(--text-muted);text-decoration:none;transition:color 0.2s;margin-left:4px;"><i class="fa-solid fa-lock" style="font-size:0.75rem;"></i> Portal Pengurus</a></p>
       </div>
     </div>
   </footer>
 
-  <!-- Main Javascript -->
+  <!-- Visitor Tracker Engine & Main Javascript -->
+  <script src="tracker.js"></script>
   <script src="script.js"></script>
 </body>
 

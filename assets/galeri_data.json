@@ -1,5 +1,68 @@
 [
   {
+    "src": "assets/galeri/penghargaan_lampung_olympic.jpg",
+    "category": "Penghargaan & Prestasi",
+    "catKey": "pementasan",
+    "title": "Juara & Trofi Lampung Student Olympic 2026",
+    "desc": "Penyerahan trofi kejuaraan emas dan piagam penghargaan resmi kepada penari Sanggar Tungga Production di panggung perhelatan bergengsi Lampung Student Olympic 2026."
+  },
+  {
+    "src": "assets/galeri/highlight_pagelaran_tanggamus.jpg",
+    "category": "Pementasan Budaya",
+    "catKey": "pementasan",
+    "title": "Pagelaran Seni & Budaya Tanggamus",
+    "desc": "Dokumentasi akbar panggung pagelaran seni dan budaya Kabupaten Tanggamus bersama jajaran pimpinan daerah dan tokoh adat."
+  },
+  {
+    "src": "assets/galeri/highlight_audiensi_tokoh.jpg",
+    "category": "Kegiatan Sanggar",
+    "catKey": "latihan",
+    "title": "Ketua Sanggar dan Bupati Tanggamus",
+    "desc": "Pertemuan silaturahmi kehormatan dan sinergi kebudayaan antara Ketua Sanggar Tungga Production bersama Bupati Tanggamus di pendopo agung."
+  },
+  {
+    "src": "assets/galeri/highlight_siger_prosesi_adat.jpg",
+    "category": "Penari & Busana",
+    "catKey": "penari",
+    "title": "Prosesi Adat Tari Siger Sembah",
+    "desc": "Formasi barisan penari Siger bertatahkan mahkota emas dalam prosesi sakral penyambutan resmi tamu kenegaraan dan jajaran pejabat daerah."
+  },
+  {
+    "src": "assets/galeri/highlight_keakraban_pejabat.jpg",
+    "category": "Pementasan Budaya",
+    "catKey": "pementasan",
+    "title": "Momen Keakraban Penari & Pimpinan Daerah",
+    "desc": "Keceriaan dan kehangatan apresiasi para tokoh dan pejabat daerah bersama tim penari Sanggar Tungga Production seusai perhelatan pementasan."
+  },
+  {
+    "src": "assets/galeri/highlight_atraksi_tari.jpg",
+    "category": "Seni & Tradisi",
+    "catKey": "karya",
+    "title": "Atraksi Koreografi Rebana Tradisional",
+    "desc": "Harmoni gerak atraksi tari berpasangan dengan ketukan rebana merah tradisional yang memukau, dinamis, dan sarat nilai seni budaya."
+  },
+  {
+    "src": "assets/galeri/highlight_flora_fauna_tanggamus.jpg",
+    "category": "Pementasan Budaya",
+    "catKey": "pementasan",
+    "title": "Ekshibisi Flora & Fauna Dilindungi Kab. Tanggamus",
+    "desc": "Apresiasi pementasan tari dan kehadiran penari Sanggar Tungga Production memeriahkan stand pameran kebudayaan pelestarian alam Kabupaten Tanggamus."
+  },
+  {
+    "src": "assets/galeri/highlight_siger_kehormatan.jpg",
+    "category": "Penari & Busana",
+    "catKey": "penari",
+    "title": "Pesona Busana Adat & Siger Lampung",
+    "desc": "Keanggunan barisan penari berbusana adat beludru marun bertatahkan bordir emas murni dan mahkota siger khas kebanggaan Lampung."
+  },
+  {
+    "src": "assets/galeri/highlight_penari_siger_tamu.jpg",
+    "category": "Penari & Busana",
+    "catKey": "penari",
+    "title": "Tata Rias & Kostum Tradisi Siger Emas",
+    "desc": "Dokumentasi detail tata rias pengantin adat Lampung dan kemewahan aksesoris siger pada prosesi penyambutan tamu kehormatan."
+  },
+  {
     "src": "assets/galeri/galeri_01.jpg",
     "category": "Pementasan Budaya",
     "catKey": "pementasan",

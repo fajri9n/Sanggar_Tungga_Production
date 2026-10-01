@@ -419,16 +419,15 @@ button, input, select, textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
-  /* Dibuat tidak terlalu mencolok (subtle & mewah) */
-  opacity: 0.25;
-  filter: brightness(0.65) contrast(1.15) saturate(1.1);
-  transform: scale(1.02);
-  transition: transform 8s ease-out;
+  object-position: center 35%;
+  opacity: 0.38;
+  filter: brightness(0.78) contrast(1.15) saturate(1.15);
+  animation: heroBgZoom 20s infinite alternate ease-in-out;
 }
 
-.hero-slide.active .hero-bg-img {
-  transform: scale(1.10);
+@keyframes heroBgZoom {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.08); }
 }
 
 .hero-bg-overlay {
@@ -439,14 +438,14 @@ button, input, select, textarea {
   height: 100%;
   background: radial-gradient(
       circle at 50% 35%,
-      rgba(13, 12, 10, 0.72) 0%,
-      rgba(13, 12, 10, 0.90) 70%,
+      rgba(13, 12, 10, 0.62) 0%,
+      rgba(13, 12, 10, 0.85) 65%,
       var(--bg-dark) 100%
     ),
     linear-gradient(
       180deg,
-      rgba(13, 12, 10, 0.6) 0%,
-      rgba(13, 12, 10, 0.88) 65%,
+      rgba(13, 12, 10, 0.45) 0%,
+      rgba(13, 12, 10, 0.82) 65%,
       var(--bg-dark) 100%
     );
   z-index: -1;
@@ -1428,6 +1427,623 @@ button, input, select, textarea {
 /* --- Gallery Section --- */
 .gallery-section {
   background: var(--bg-dark);
+}
+
+/* --- Common Pill & Subheadings --- */
+.badge-gold-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: var(--gold-light);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 5px 16px;
+  border-radius: var(--radius-full);
+  margin-bottom: 12px;
+  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.15);
+}
+
+.block-subheading {
+  margin-bottom: 24px;
+}
+
+.block-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.block-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================
+   SIDE-BY-SIDE: HIGHLIGHT & PENGHARGAAN
+   ========================================================== */
+.highlight-awards-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin-bottom: 85px;
+  align-items: stretch;
+}
+
+.highlight-side-column,
+.awards-side-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- KIRI: HIGHLIGHT PEMENTASAN CARDS --- */
+.highlight-cards-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.highlight-featured-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.highlight-featured-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px var(--gold-glow);
+}
+
+.highlight-card-img-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.highlight-featured-card .highlight-card-img-wrap {
+  height: 270px;
+}
+
+.highlight-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.highlight-featured-card:hover img,
+.highlight-mini-card:hover img {
+  transform: scale(1.08);
+}
+
+.highlight-badge-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  background: rgba(13, 12, 10, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: var(--gold-light);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.highlight-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    0deg,
+    rgba(13, 12, 10, 0.95) 0%,
+    rgba(13, 12, 10, 0.6) 45%,
+    rgba(13, 12, 10, 0.1) 80%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 18px 20px;
+}
+
+.highlight-content {
+  width: 100%;
+}
+
+.highlight-tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  letter-spacing: 0.8px;
+  margin-bottom: 4px;
+}
+
+.highlight-title {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.highlight-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+/* Mini 2-Column Grid */
+.highlight-mini-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.highlight-mini-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.highlight-mini-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 18px var(--gold-glow);
+}
+
+.highlight-mini-card .highlight-card-img-wrap {
+  height: 170px;
+}
+
+.highlight-mini-card .highlight-title {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.btn-xs {
+  padding: 5px 12px;
+  font-size: 0.74rem;
+  border-radius: var(--radius-full);
+}
+
+/* Horizontal Highlight Card */
+.highlight-horizontal-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.highlight-horizontal-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6), 0 0 16px var(--gold-glow);
+}
+
+.horizontal-thumb {
+  height: 100%;
+  min-height: 105px;
+  overflow: hidden;
+}
+
+.horizontal-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  transition: transform 0.5s ease;
+}
+
+.highlight-horizontal-card:hover .horizontal-thumb img {
+  transform: scale(1.08);
+}
+
+.horizontal-info {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.h-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.h-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.h-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* --- KANAN: PENGHARGAAN & PRESTASI SHOWCASE --- */
+.award-showcase-card {
+  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, rgba(21, 19, 16, 0.92) 50%, rgba(13, 12, 10, 0.98) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.1);
+  display: grid;
+  grid-template-columns: 215px 1fr;
+  gap: 22px;
+  margin-bottom: 18px;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.award-showcase-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+}
+
+.award-showcase-card:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 32px var(--gold-glow);
+}
+
+.award-visual-box {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  height: 100%;
+  min-height: 270px;
+  background: radial-gradient(circle at center, rgba(32, 28, 22, 0.95) 0%, rgba(13, 12, 10, 0.98) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.award-bg-blur {
+  position: absolute;
+  inset: -15px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(0.45);
+  opacity: 0.7;
+  pointer-events: none;
+  transform: scale(1.12);
+  z-index: 1;
+}
+
+.award-visual-box img.award-main-img,
+.award-visual-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.65));
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.award-visual-box:hover img.award-main-img,
+.award-visual-box:hover img {
+  transform: scale(1.04);
+}
+
+.award-trophy-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--gold-gradient);
+  color: #120e03;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6);
+  animation: awardPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes awardPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.85);
+  }
+}
+
+.award-zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 3;
+  background: rgba(13, 12, 10, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: var(--gold-light);
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.award-visual-box:hover .award-zoom-hint {
+  background: var(--gold-gradient);
+  color: #120e03;
+  border-color: var(--gold-light);
+}
+
+.award-details-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.award-tags-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.award-badge-gold {
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-light);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.award-badge-outline {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.award-headline {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: #ffffff;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.award-paragraph {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.award-key-points {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.key-point-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.key-point-item:hover {
+  background: rgba(212, 175, 55, 0.06);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.kp-icon {
+  font-size: 1rem;
+  margin-top: 2px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.kp-text strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.82rem;
+  margin-bottom: 1px;
+}
+
+.kp-text span {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.award-btn-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.award-mini-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.award-pill-card {
+  background: rgba(18, 16, 13, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  transition: all var(--transition-normal);
+}
+
+.award-pill-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 14px var(--gold-glow);
+}
+
+.pill-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.award-pill-card h5 {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  color: #ffffff;
+  margin-bottom: 2px;
+}
+
+.award-pill-card p {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* --- SEMUA FOTO DI PALING AKHIR --- */
+.gallery-all-photos-block {
+  position: relative;
+  padding-top: 30px;
+  border-top: 1px dashed rgba(212, 175, 55, 0.2);
+}
+
+.gallery-block-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.gallery-block-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.gallery-block-subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Responsive side-by-side */
+@media (max-width: 992px) {
+  .highlight-awards-wrapper {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .award-showcase-card {
+    grid-template-columns: 1fr;
+  }
+
+  .award-visual-box {
+    max-height: 380px;
+  }
+}
+
+@media (max-width: 576px) {
+  .highlight-mini-grid,
+  .award-mini-pills {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-horizontal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .horizontal-thumb {
+    height: 160px;
+  }
 }
 
 .gallery-filters {
@@ -2595,4 +3211,3 @@ button, input, select, textarea {
     padding: 12px 16px;
   }
 }
-

@@ -599,6 +599,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Custom Lightbox handler for Highlight & Award cards
+  const openCustomLightbox = (src, title, category, desc) => {
+    if (!lightboxModal) return;
+    if (lightboxSpinner) lightboxSpinner.classList.add('show');
+    lightboxImg.style.opacity = '0.3';
+
+    const tempImg = new Image();
+    tempImg.src = src;
+    tempImg.onload = () => {
+      lightboxImg.src = src;
+      lightboxImg.alt = title;
+      lightboxImg.style.opacity = '1';
+      if (lightboxSpinner) lightboxSpinner.classList.remove('show');
+    };
+
+    lightboxCategory.textContent = category || 'Momen Pilihan';
+    lightboxTitle.textContent = title || 'Dokumentasi Sanggar';
+    lightboxDesc.textContent = desc || '';
+    lightboxCounter.textContent = 'Highlight & Penghargaan';
+
+    lightboxModal.classList.add('active');
+    lightboxModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const customLightboxTriggers = document.querySelectorAll('[data-lightbox-src]');
+  customLightboxTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      e.stopPropagation();
+      const src = trigger.getAttribute('data-lightbox-src');
+      const title = trigger.getAttribute('data-lightbox-title');
+      const cat = trigger.getAttribute('data-lightbox-cat');
+      const desc = trigger.getAttribute('data-lightbox-desc');
+      if (src) {
+        openCustomLightbox(src, title, cat, desc);
+      }
+    });
+  });
+
   /* ----------------------------------------------------
      4. Interactive WhatsApp Consultation Form Handler
      ---------------------------------------------------- */
